@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 220 140" width="220" height="140" fill="none">
+  <line x1="20" y1="36" x2="68" y2="36" stroke="#0F172A" stroke-width="6" stroke-linecap="square" />
+  <text x="195" y="42" text-anchor="end" fill="#0F172A" font-family="'IBM Plex Sans Arabic', 'Tajawal', -apple-system, sans-serif" font-weight="900" font-size="36">الميثاق</text>
+  <line x1="20" y1="76" x2="80" y2="76" stroke="#0F172A" stroke-width="6" stroke-linecap="square" />
+  <text x="195" y="82" text-anchor="end" fill="#0F172A" font-family="'IBM Plex Sans Arabic', 'Tajawal', -apple-system, sans-serif" font-weight="900" font-size="36">الوطني</text>
+  <line x1="20" y1="116" x2="60" y2="116" stroke="#0F172A" stroke-width="6" stroke-linecap="square" />
+  <text x="195" y="122" text-anchor="end" fill="#0F172A" font-family="'IBM Plex Sans Arabic', 'Tajawal', -apple-system, sans-serif" font-weight="900" font-size="36">للتعليم</text>
+  <rect x="20" y="132" width="175" height="5" fill="#8A1528" rx="1" />
+</svg>

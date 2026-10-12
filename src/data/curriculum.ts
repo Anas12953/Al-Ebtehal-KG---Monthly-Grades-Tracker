@@ -1,0 +1,311 @@
+import { AssessmentStandard, GradeLevel, SubjectDomain } from '../types/index.ts';
+
+export interface DomainMeta {
+  key: SubjectDomain;
+  nameAr: string;
+  nameEn: string;
+  color: string;
+  accentBg: string;
+}
+
+export const DOMAINS: Record<SubjectDomain, DomainMeta> = {
+  arabic: {
+    key: 'arabic',
+    nameAr: 'اللغة العربية',
+    nameEn: 'Arabic Language',
+    color: '#0D9488',
+    accentBg: 'rgba(13, 148, 136, 0.1)',
+  },
+  english: {
+    key: 'english',
+    nameEn: 'English Language',
+    nameAr: 'اللغة الإنجليزية',
+    color: '#2563EB',
+    accentBg: 'rgba(37, 99, 235, 0.1)',
+  },
+  math: {
+    key: 'math',
+    nameAr: 'الرياضيات',
+    nameEn: 'Mathematics',
+    color: '#7C3AED',
+    accentBg: 'rgba(124, 58, 237, 0.1)',
+  },
+  science: {
+    key: 'science',
+    nameAr: 'العلوم والاستكشاف',
+    nameEn: 'Science & Discovery',
+    color: '#059669',
+    accentBg: 'rgba(5, 150, 105, 0.1)',
+  },
+  islamic: {
+    key: 'islamic',
+    nameAr: 'التربية الإسلامية',
+    nameEn: 'Islamic Education',
+    color: '#D97706',
+    accentBg: 'rgba(217, 119, 6, 0.1)',
+  },
+  national: {
+    key: 'national',
+    nameAr: 'الهوية الوطنية',
+    nameEn: 'National Identity',
+    color: '#DC2626',
+    accentBg: 'rgba(220, 38, 38, 0.1)',
+  },
+};
+
+export const GRADE_DEFINITIONS = {
+  EX: {
+    code: 'EX',
+    nameAr: 'يفوق التوقعات',
+    nameEn: 'Exceeding',
+    color: '#16A34A',
+    badgeClass: 'text-emerald-700 bg-emerald-50 dark:bg-emerald-950/40 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800',
+    descriptionAr: 'يظهر الطفل تمكناً عالياً ومبادرة ذاتية تفوق المستوى العمري المستهدف',
+    descriptionEn: 'Child demonstrates advanced mastery and self-directed competence exceeding developmental expectations.',
+  },
+  M: {
+    code: 'M',
+    nameAr: 'متمكن',
+    nameEn: 'Mastery',
+    color: '#2563EB',
+    badgeClass: 'text-blue-700 bg-blue-50 dark:bg-blue-950/40 dark:text-blue-400 border border-blue-200 dark:border-blue-800',
+    descriptionAr: 'حقق الطفل المعيار التعليمي بثبات واستقلالية تامة',
+    descriptionEn: 'Child consistently meets the standard independently and with confidence.',
+  },
+  D: {
+    code: 'D',
+    nameAr: 'في طور التطور',
+    nameEn: 'Developing',
+    color: '#D97706',
+    badgeClass: 'text-amber-700 bg-amber-50 dark:bg-amber-950/40 dark:text-amber-400 border border-amber-200 dark:border-amber-800',
+    descriptionAr: 'يتقدم الطفل نحو تحقيق المعيار مع الحاجة إلى بعض التوجيه والدعم',
+    descriptionEn: 'Child is progressing toward the standard with occasional guidance and practice.',
+  },
+  E: {
+    code: 'E',
+    nameAr: 'في مرحلة النمو',
+    nameEn: 'Emerging',
+    color: '#DC2626',
+    badgeClass: 'text-rose-700 bg-rose-50 dark:bg-rose-950/40 dark:text-rose-400 border border-rose-200 dark:border-rose-800',
+    descriptionAr: 'بدأ الطفل في اكتساب المهارة ويحتاج إلى دعم مستمر وممارسة مكثفة',
+    descriptionEn: 'Child is beginning to acquire the skill and requires focused support and practice.',
+  },
+};
+
+export const KG1_STANDARDS: Omit<AssessmentStandard, 'grade'>[] = [
+  {
+    id: 'kg1_std_1',
+    nameAr: 'يستمع بانتباه ويتفاعل مع القصص والنصوص المقروءة',
+    nameEn: 'Listens attentively and responds to read-aloud stories and texts',
+    domain: 'arabic',
+    domainAr: 'اللغة العربية',
+    domainEn: 'Arabic Language',
+  },
+  {
+    id: 'kg1_std_2',
+    nameAr: 'يعبّر شفهياً بجمل بسيطة ويصف المشاهد والصور المألوفة',
+    nameEn: 'Expresses orally using simple sentences to describe familiar scenes',
+    domain: 'arabic',
+    domainAr: 'اللغة العربية',
+    domainEn: 'Arabic Language',
+  },
+  {
+    id: 'kg1_std_3',
+    nameAr: 'يتعرف على الحروف الهجائية الأساسية وأصواتها الأولى',
+    nameEn: 'Identifies basic Arabic letters and their initial phonetic sounds',
+    domain: 'arabic',
+    domainAr: 'اللغة العربية',
+    domainEn: 'Arabic Language',
+  },
+  {
+    id: 'kg1_std_4',
+    nameAr: 'يستمع بانتباه ويتفاعل مع القصص والأنشطة باللغة الإنجليزية',
+    nameEn: 'Listens attentively and responds to simple English stories and rhymes',
+    domain: 'english',
+    domainAr: 'اللغة الإنجليزية',
+    domainEn: 'English Language',
+  },
+  {
+    id: 'kg1_std_5',
+    nameAr: 'يتعرف على حروف الأبجدية الإنجليزية وأصواتها الصوتية الأساسية',
+    nameEn: 'Recognizes alphabet letters and introductory phonics sounds',
+    domain: 'english',
+    domainAr: 'اللغة الإنجليزية',
+    domainEn: 'English Language',
+  },
+  {
+    id: 'kg1_std_6',
+    nameAr: 'يتعرف على الأعداد من 1 إلى 10 ويميز مدلولها وكمياتها',
+    nameEn: 'Recognizes numbers 1 to 10 and understands corresponding quantities',
+    domain: 'math',
+    domainAr: 'الرياضيات',
+    domainEn: 'Mathematics',
+  },
+  {
+    id: 'kg1_std_7',
+    nameAr: 'يقارن بين الأحجام والأطوال والأشكال الهندسية البسيطة',
+    nameEn: 'Compares sizes, lengths, and basic geometric 2D shapes',
+    domain: 'math',
+    domainAr: 'الرياضيات',
+    domainEn: 'Mathematics',
+  },
+  {
+    id: 'kg1_std_8',
+    nameAr: 'يستكشف عناصر الطبيعة وخواص المواد المحيطة به بحواسه',
+    nameEn: 'Explores nature and properties of physical materials using senses',
+    domain: 'science',
+    domainAr: 'العلوم والاستكشاف',
+    domainEn: 'Science & Discovery',
+  },
+  {
+    id: 'kg1_std_9',
+    nameAr: 'يمارس الملاحظة والتجريب في الأنشطة الحسية والعلمية الموجهة',
+    nameEn: 'Practices observation and basic testing in guided sensory activities',
+    domain: 'science',
+    domainAr: 'العلوم والاستكشاف',
+    domainEn: 'Science & Discovery',
+  },
+  {
+    id: 'kg1_std_10',
+    nameAr: 'يحفظ قصار السور المقررة والأدعية والأذكار اليومية الأساسية',
+    nameEn: 'Memorizes prescribed short Quranic Surahs and daily supplications',
+    domain: 'islamic',
+    domainAr: 'التربية الإسلامية',
+    domainEn: 'Islamic Education',
+  },
+  {
+    id: 'kg1_std_11',
+    nameAr: 'يتعلم الآداب الإسلامية الأساسية كالاستئذان وبر الوالدين والشكر',
+    nameEn: 'Learns foundational Islamic manners, kindness to parents, and gratitude',
+    domain: 'islamic',
+    domainAr: 'التربية الإسلامية',
+    domainEn: 'Islamic Education',
+  },
+  {
+    id: 'kg1_std_12',
+    nameAr: 'يميز علم دولة الإمارات والنشيد الوطني والرموز التراثية',
+    nameEn: 'Recognizes the UAE national flag, anthem, and cultural heritage symbols',
+    domain: 'national',
+    domainAr: 'الهوية الوطنية',
+    domainEn: 'National Identity',
+  },
+  {
+    id: 'kg1_std_13',
+    nameAr: 'يشارك بفاعلية واعتزاز في المناسبات الوطنية والتراثية',
+    nameEn: 'Participates proudly in national occasions and community heritage events',
+    domain: 'national',
+    domainAr: 'الهوية الوطنية',
+    domainEn: 'National Identity',
+  },
+];
+
+export const KG2_STANDARDS: Omit<AssessmentStandard, 'grade'>[] = [
+  {
+    id: 'kg2_std_1',
+    nameAr: 'يقرأ كلمات مألوفة ويميز بين الحركات القصيرة والمدود الطويلة',
+    nameEn: 'Reads familiar words distinguishing short vowels and long sounds',
+    domain: 'arabic',
+    domainAr: 'اللغة العربية',
+    domainEn: 'Arabic Language',
+  },
+  {
+    id: 'kg2_std_2',
+    nameAr: 'يكتب الحروف والكلمات البسيطة باتجاه صحيح ودقة بصرية',
+    nameEn: 'Writes letters and simple words with proper direction and pencil control',
+    domain: 'arabic',
+    domainAr: 'اللغة العربية',
+    domainEn: 'Arabic Language',
+  },
+  {
+    id: 'kg2_std_3',
+    nameAr: 'يعبّر بجمل تامة ومترابطة عن أفكاره ومشاعره وتجاربه اليومية',
+    nameEn: 'Expresses thoughts, feelings, and daily experiences in full sentences',
+    domain: 'arabic',
+    domainAr: 'اللغة العربية',
+    domainEn: 'Arabic Language',
+  },
+  {
+    id: 'kg2_std_4',
+    nameAr: 'يقرأ الكلمات البصرية المتكررة والكلمات الصوتية البسيطة (CVC Words)',
+    nameEn: 'Reads high-frequency sight words and decodable CVC words',
+    domain: 'english',
+    domainAr: 'اللغة الإنجليزية',
+    domainEn: 'English Language',
+  },
+  {
+    id: 'kg2_std_5',
+    nameAr: 'يكتب الحروف الهجائية الإنجليزية وكلمات بسيطة مع تطبيق الوعي الصوتي',
+    nameEn: 'Writes English letters and simple words using phonics awareness',
+    domain: 'english',
+    domainAr: 'اللغة الإنجليزية',
+    domainEn: 'English Language',
+  },
+  {
+    id: 'kg2_std_6',
+    nameAr: 'يعد تصاعدياً وتنازلياً ويحل مسائل الجمع والطرح البسيطة حتى 20',
+    nameEn: 'Counts forwards/backwards and solves simple addition/subtraction to 20',
+    domain: 'math',
+    domainAr: 'الرياضيات',
+    domainEn: 'Mathematics',
+  },
+  {
+    id: 'kg2_std_7',
+    nameAr: 'يميز الأشكال الهندسية ثنائية وثلاثية الأبعاد ويصنع أنماطاً مركبة',
+    nameEn: 'Identifies 2D & 3D shapes and creates structured mathematical patterns',
+    domain: 'math',
+    domainAr: 'الرياضيات',
+    domainEn: 'Mathematics',
+  },
+  {
+    id: 'kg2_std_8',
+    nameAr: 'يفسر دورات الحياة والظواهر الطبيعية وطرق الحفاظ على البيئة المدرسية',
+    nameEn: 'Explains living cycles, natural phenomena, and environmental stewardship',
+    domain: 'science',
+    domainAr: 'العلوم والاستكشاف',
+    domainEn: 'Science & Discovery',
+  },
+  {
+    id: 'kg2_std_9',
+    nameAr: 'يستخدم أدوات البحث والاستقصاء العلمي ويسجل استنتاجاته وملاحظاته',
+    nameEn: 'Uses scientific inquiry tools, questions phenomena, and records observations',
+    domain: 'science',
+    domainAr: 'العلوم والاستكشاف',
+    domainEn: 'Science & Discovery',
+  },
+  {
+    id: 'kg2_std_10',
+    nameAr: 'يحفظ السور القرآنية المقررة ويفهم معانيها البسيطة وآداب الصلاة',
+    nameEn: 'Memorizes prescribed Surahs with basic meaning and prayer etiquette',
+    domain: 'islamic',
+    domainAr: 'التربية الإسلامية',
+    domainEn: 'Islamic Education',
+  },
+  {
+    id: 'kg2_std_11',
+    nameAr: 'يطبق الأخلاق الإسلامية الفاضلة كالصدق والأمانة والتعاون مع الأقران',
+    nameEn: 'Demonstrates Islamic values of honesty, teamwork, and respectful sharing',
+    domain: 'islamic',
+    domainAr: 'التربية الإسلامية',
+    domainEn: 'Islamic Education',
+  },
+  {
+    id: 'kg2_std_12',
+    nameAr: 'يتعرف على قادة ومؤسسي دولة الإمارات ومعالمها التاريخية والحضارية',
+    nameEn: 'Knows UAE leaders, founders, and prominent cultural/historic landmarks',
+    domain: 'national',
+    domainAr: 'الهوية الوطنية',
+    domainEn: 'National Identity',
+  },
+  {
+    id: 'kg2_std_13',
+    nameAr: 'يظهر الولاء والانتماء الوطني والاعتزاز بالسنع والعادات الإماراتية الأصيلة',
+    nameEn: 'Shows national loyalty, pride, and authentic Emirati cultural etiquette (San\'a)',
+    domain: 'national',
+    domainAr: 'الهوية الوطنية',
+    domainEn: 'National Identity',
+  },
+];
+
+export function getStandardsForGrade(grade: GradeLevel): Omit<AssessmentStandard, 'grade'>[] {
+  return grade === 'KG1' ? KG1_STANDARDS : KG2_STANDARDS;
+}

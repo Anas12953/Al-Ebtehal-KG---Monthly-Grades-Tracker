@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  body {
+    font-family: 'IBM Plex Sans Arabic', 'Inter', system-ui, -apple-system, sans-serif;
+  }
+}
+
+:root {
+  --color-royal-gold: #C5A059;
+  --color-royal-navy: #1E3A8A;
+  
+  /* Liquid Glass Design Tokens - Light Theme */
+  --glass-bg: rgba(255, 255, 255, 0.76);
+  --glass-bg-subtle: rgba(255, 255, 255, 0.52);
+  --glass-bg-solid-fallback: #FFFFFF;
+  --glass-border: rgba(255, 255, 255, 0.85);
+  --glass-border-subtle: rgba(228, 228, 231, 0.7);
+  --glass-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.95), inset 0 -1px 1px 0 rgba(0, 0, 0, 0.03);
+  --glass-shadow: 0 12px 36px -6px rgba(0, 0, 0, 0.06), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+  --glass-shadow-sm: 0 4px 16px -2px rgba(0, 0, 0, 0.04), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+}
+
+.dark {
+  /* Liquid Glass Design Tokens - Dark Theme */
+  --glass-bg: rgba(18, 18, 22, 0.72);
+  --glass-bg-subtle: rgba(26, 26, 32, 0.54);
+  --glass-bg-solid-fallback: #121214;
+  --glass-border: rgba(255, 255, 255, 0.14);
+  --glass-border-subtle: rgba(255, 255, 255, 0.07);
+  --glass-highlight: inset 0 1px 1px 0 rgba(255, 255, 255, 0.22), inset 0 -1px 1px 0 rgba(0, 0, 0, 0.5);
+  --glass-shadow: 0 16px 44px -8px rgba(0, 0, 0, 0.55), 0 6px 16px -2px rgba(0, 0, 0, 0.4);
+  --glass-shadow-sm: 0 6px 20px -3px rgba(0, 0, 0, 0.4), 0 2px 8px -1px rgba(0, 0, 0, 0.3);
+}
+
+/* Liquid Glass Utilities with Real Backdrop Filter & Specular Highlights */
+.liquid-glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(22px) saturate(190%);
+  -webkit-backdrop-filter: blur(22px) saturate(190%);
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+}
+
+.liquid-glass-nav {
+  background: var(--glass-bg);
+  backdrop-filter: blur(24px) saturate(190%);
+  -webkit-backdrop-filter: blur(24px) saturate(190%);
+  border-bottom: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow-sm), var(--glass-highlight);
+}
+
+.liquid-glass-subtle {
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(14px) saturate(160%);
+  -webkit-backdrop-filter: blur(14px) saturate(160%);
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-highlight);
+}
+
+.liquid-glass-interactive {
+  background: var(--glass-bg-subtle);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border: 1px solid var(--glass-border-subtle);
+  box-shadow: var(--glass-highlight);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.liquid-glass-interactive:hover {
+  background: var(--glass-bg);
+  border-color: var(--glass-border);
+  transform: translateY(-1.5px);
+  box-shadow: var(--glass-shadow), var(--glass-highlight);
+}
+
+/* High-contrast solid treatment for dense data rows and readable content blocks */
+.solid-content-surface {
+  background-color: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(228, 228, 231, 0.8);
+}
+
+.dark .solid-content-surface {
+  background-color: rgba(22, 22, 26, 0.94);
+  border: 1px solid rgba(39, 39, 42, 0.8);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not ((-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px))) {
+  .liquid-glass,
+  .liquid-glass-nav,
+  .liquid-glass-subtle,
+  .liquid-glass-interactive {
+    background: var(--glass-bg-solid-fallback);
+  }
+}
+
+/* Smooth custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(120, 120, 128, 0.28);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(120, 120, 128, 0.48);
+}
+
+/* Reduced motion accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

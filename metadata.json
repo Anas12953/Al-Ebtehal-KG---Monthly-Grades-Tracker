@@ -1,0 +1,6 @@
+{
+  "name": "Al Ebtehal Kindergarten Portal",
+  "description": "Official bilingual student performance and progress portal for Al Ebtehal Kindergarten (Academic Year 2026–2027).",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
